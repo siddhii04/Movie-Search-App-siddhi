@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Search App</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightblue;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input {
+            padding: 10px;
+            width: 220px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Movie Search App</h1>
+
+        <input type="text" id="movie"
+        placeholder="Enter movie name">
+
+        <button onclick="searchMovie()">Search</button>
+
+        <div id="result"></div>
+
+    </div>
+
+    <script>
+
+        function searchMovie() {
+
+            var name = document.getElementById("movie").value;
+            var result = document.getElementById("result");
+
+            if (name == "") {
+                result.innerHTML = "Please enter a movie name";
+            }
+
+            else {
+
+                var movies = {
+                    "3 idiots": "Comedy, Drama - 2009",
+                    "dangal": "Sports, Drama - 2016",
+                    "interstellar": "Science Fiction - 2014",
+                    "avatar": "Adventure, Science Fiction - 2009",
+                    "taare zameen par": "Drama - 2007"
+                };
+
+                var movieName = name.toLowerCase();
+
+                if (movies[movieName]) {
+
+                    result.innerHTML =
+                    "<h2>" + name + "</h2>" +
+                    "<p>" + movies[movieName] + "</p>" +
+                    "<p>Movie found successfully!</p>";
+
+                }
+
+                else {
+                    result.innerHTML =
+                    "<p>Sorry! Movie not found.</p>";
+                }
+            }
+        }
+
+    </script>
+
+</body>
+</html>
